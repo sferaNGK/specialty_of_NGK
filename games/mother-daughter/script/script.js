@@ -211,7 +211,7 @@ function handleTouchMove(event) {
                         i.style.display = 'none'
                     }
                 }
-                document.querySelector('body').style.backgroundImage = ""
+                document.querySelector('body').style.backdropFilter = 'blur(5px)'
             }, 1000)
         }
     }
@@ -228,6 +228,8 @@ function dropPlaceIsFull(elemBelow, item) {
         item.classList.remove('inDropPlace')
         dropPlace = dropPlace.filter(i => i !== item.id)
     }
+
+    console.log(dropPlace)
 
     let correctElementsCount = 0
     if (dropPlace.length === document.getElementsByClassName('correct').length) {
