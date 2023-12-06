@@ -204,16 +204,15 @@ function handleTouchMove(event) {
         let dropPlaceStatus = dropPlaceIsFull(elemBelow, item)
 
         if (dropPlaceStatus === true) {
-            // setTimeout(() => {
-            //     document.querySelector('h1').style.display = 'block'
-            //     document.querySelector('.congratulation').style.display = 'grid'
-            //     for (let i of document.body.children) {
-            //         if (i.className !== 'congratulation') {
-            //             i.style.display = 'none'
-            //         }
-            //     }
-            //     document.querySelector('body').style.backgroundImage = ""
-            // }, 1000)
+            setTimeout(() => {
+                document.querySelector('.congratulation').style.display = 'grid'
+                for (let i of document.body.children) {
+                    if (i.className !== 'congratulation') {
+                        i.style.display = 'none'
+                    }
+                }
+                document.querySelector('body').style.backgroundImage = ""
+            }, 1000)
         }
     }
 }
