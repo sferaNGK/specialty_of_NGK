@@ -1,0 +1,24 @@
+@import "../style/fonts.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    place-content: center;
+}
+
+a {
+    font-family: CyrRound, serif;
+    font-size: 6vh;
+    margin: 2vh 0;
+    text-align: center;
+}
+
+.page-links {
+    display: flex;
+    flex-direction: column;
+}

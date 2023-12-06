@@ -1,13 +1,8 @@
 @import "../../../style/fonts.css";
 @import "../../commonStyle.css";
 
-html {
-    overflow: hidden;
-}
-
 body {
     background-image: url("../img/bg.jpg");
-    background-size: cover;
 }
 
 img {
@@ -24,7 +19,7 @@ img {
 }
 
 #gun2 {
-    transform: rotate(10deg);
+    transform: rotate(18deg) scale(0.9);
 }
 
 #toysForKukla {

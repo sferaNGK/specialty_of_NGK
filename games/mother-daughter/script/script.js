@@ -45,8 +45,8 @@ const images = [
         src: "img/gun2.png",
         alt: "gun2",
         className: "drag-item incorrect",
-        posLeft: "78%",
-        posTop: "74%",
+        posLeft: "80%",
+        posTop: "72%",
     },
     {
         id: "lego",
@@ -162,7 +162,7 @@ let shiftY = null;
 for (let item of document.getElementsByClassName('drag-item')) { // --- ВЕШАЕМ НА ПЕРЕТАСКИВАЕМЫЕ ОБЪЕКТЫ ОБРАБОТЧИК СОБЫТИЯ
     item.addEventListener('touchstart', handleTouchStart);
     if (item.className.split(' ')[2] === 'inDropPlace') {
-        dropPlace.push(item.id)
+        dropPlace.push(item)
     }
 }
 
@@ -197,7 +197,7 @@ function handleTouchMove(event) {
 
         // --- СКРЫВАЕМ ПЕРЕТАСКИВАЕМЫЙ ОБЪЕКТ, ЧТОБЫ ОПРЕДЕЛИТЬ НАХОДЯЩИЙСЯ ПОД НИМ БЛОК, И СНОВА ПОКАЗЫВАЕМ ---
         item.style.visibility = 'hidden';
-        let elemBelow = document.elementFromPoint(event.touches[0].pageX, event.touches[0].pageY);
+        let elemBelow = document.elementFromPoint(item.getBoundingClientRect().left + item.offsetWidth / 2, item.getBoundingClientRect().bottom);
         item.style.visibility = 'visible';
 
         // --- ОТСЛЕЖИВАЕМ ЗАПОЛНЕННОСТЬ МЕШКА И ЁЛКИ НУЖНЫМИ ОБЪЕКТАМИ ---
@@ -218,15 +218,14 @@ function handleTouchMove(event) {
 }
 
 function dropPlaceIsFull(elemBelow, item) {
-    console.log(elemBelow)
     if (elemBelow.className === 'drop-place' || elemBelow.className.split(' ')[2] === 'inDropPlace') {
         item.classList.add('inDropPlace')
-        if (!dropPlace.includes(item.id)) {
-            dropPlace.push(item.id)
+        if (!dropPlace.includes(item)) {
+            dropPlace.push(item)
         }
     } else {
         item.classList.remove('inDropPlace')
-        dropPlace = dropPlace.filter(i => i !== item.id)
+        dropPlace = dropPlace.filter(i => i !== item)
     }
 
     console.log(dropPlace)
