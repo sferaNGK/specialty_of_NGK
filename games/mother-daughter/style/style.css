@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    background-image: url("../img/bg.png");
+    background-image: url("../img/bg.jpg");
     background-size: cover;
 }
 
@@ -24,7 +24,7 @@ img {
 }
 
 #gun2 {
-    transform: rotateX(14deg);
+    transform: rotate(15deg);
 }
 
 #toysForKukla {

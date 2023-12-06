@@ -14,7 +14,7 @@ const images = [
         alt: "airplane",
         className: "drag-item incorrect",
         posLeft: "39%",
-        posTop: "82%",
+        posTop: "85%",
     },
     {
         id: "car1",
@@ -37,7 +37,7 @@ const images = [
         src: "img/gun1.png",
         alt: "gun1",
         className: "drag-item incorrect inDropPlace",
-        posLeft: "75%",
+        posLeft: "70%",
         posTop: "87%",
     },
     {
@@ -45,15 +45,15 @@ const images = [
         src: "img/gun2.png",
         alt: "gun2",
         className: "drag-item incorrect",
-        posLeft: "41%",
-        posTop: "72%",
+        posLeft: "44%",
+        posTop: "78%",
     },
     {
         id: "lego",
         src: "img/lego.png",
         alt: "lego",
         className: "drag-item incorrect inDropPlace",
-        posLeft: "60%",
+        posLeft: "55%",
         posTop: "85%",
     },
     {
@@ -69,8 +69,8 @@ const images = [
         src: "img/kukla2.png",
         alt: "kukla2",
         className: "drag-item correct",
-        posLeft: "47%",
-        posTop: "50%",
+        posLeft: "48%",
+        posTop: "55%",
     },
     {
         id: "kukla3",
@@ -78,7 +78,7 @@ const images = [
         alt: "kukla3",
         className: "drag-item correct",
         posLeft: "66.5%",
-        posTop: "50%",
+        posTop: "55%",
     },
     {
         id: "instruments",
@@ -86,7 +86,7 @@ const images = [
         alt: "instruments",
         className: "drag-item incorrect",
         posLeft: "88%",
-        posTop: "82%",
+        posTop: "78%",
     },
     {
         id: "pram",
@@ -94,7 +94,7 @@ const images = [
         alt: "pram",
         className: "drag-item correct",
         posLeft: "23%",
-        posTop: "64.5%",
+        posTop: "68%",
     },
     {
         id: "toysForKukla",
