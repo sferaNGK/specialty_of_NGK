@@ -1,0 +1,61 @@
+@import "../../../style/fonts.css";
+@import "../../commonStyle.css";
+
+body {
+    background-image: url("../img/bg.jpg");
+    background-position: -2.15vw, -5vh;
+    background-size: 105%;
+}
+
+.container p {
+    color: white;
+    margin: 0.5vh 0.5vw;
+    font-size: 2.5vh;
+    width: max-content;
+    height: max-content;
+}
+
+.container {
+    position: absolute;
+    left: 50%;
+    top: 64%;
+    transform: translate(-50%, -50%);
+    width: 55vw;
+    height: 68vh;
+    border: 0.12vw solid #dbd0be;
+    border-radius: 1vw;
+    display: grid;
+    grid-template-rows: 10% 65% max-content;
+    grid-template-columns: repeat(2, 50%);
+}
+
+.container h6 {
+    color: white;
+    font-size: 5vh;
+    display: grid;
+    place-content: center;
+    grid-column: 1 / 3;
+    border-bottom: 0.12vw solid #e8e8e8;
+}
+
+.left-drop-side p, .right-drop-side p {
+    color: white;
+    font-size: 2.5vh;
+    text-decoration: underline;
+}
+
+.left-drop-side {
+    border-right: 0.06vw solid #e8e8e8;
+}
+
+.right-drop-side {
+    border-left: 0.06vw solid #e8e8e8;
+}
+
+.items {
+    border-top: 0.12vw solid #e8e8e8;
+    grid-column: 1 / 3;
+    display: flex;
+    flex-wrap: wrap;
+    height: max-content;
+}

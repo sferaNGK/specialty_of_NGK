@@ -1,13 +1,8 @@
 @import "../../../style/fonts.css";
 @import "../../commonStyle.css";
 
-html {
-    overflow: hidden;
-}
-
 body {
     background-image: url("../img/bg.jpg");
-    background-size: cover;
 }
 
 img {

@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow: hidden;
+}
+
 a {
     text-decoration: none;
     color: #ffffff;
@@ -19,6 +23,7 @@ body {
     font-family: 'CyrRound', serif;
     height: 100vh;
     width: 100vw;
+    background-size: cover;
     display: grid;
     place-content: center;
 }
@@ -35,6 +40,7 @@ body {
 .congratulation img {
     position: absolute;
     z-index: 0;
+    pointer-events: none;
 }
 
 #salutLeft {
@@ -67,7 +73,6 @@ body {
     justify-content: center;
     margin-top: 10vh;
     border-radius: 1vw;
-    z-index: 100;
 }
 
 .toMenu {
