@@ -10,3 +10,12 @@
     display: none;
     place-content: center;
 }
+
+.container {
+
+}
+
+.btn-row {
+    display: flex;
+    justify-content: center;
+}

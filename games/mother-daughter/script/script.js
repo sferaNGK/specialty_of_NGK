@@ -162,7 +162,7 @@ let shiftY = null;
 for (let item of document.getElementsByClassName('drag-item')) { // --- ВЕШАЕМ НА ПЕРЕТАСКИВАЕМЫЕ ОБЪЕКТЫ ОБРАБОТЧИК СОБЫТИЯ
     item.addEventListener('touchstart', handleTouchStart);
     if (item.className.split(' ')[2] === 'inDropPlace') {
-        dropPlace.push(item)
+        dropPlace.push(item.id)
     }
 }
 
@@ -218,14 +218,15 @@ function handleTouchMove(event) {
 }
 
 function dropPlaceIsFull(elemBelow, item) {
+    console.log(elemBelow)
     if (elemBelow.className === 'drop-place' || elemBelow.className.split(' ')[2] === 'inDropPlace') {
         item.classList.add('inDropPlace')
-        if (!dropPlace.includes(item)) {
-            dropPlace.push(item)
+        if (!dropPlace.includes(item.id)) {
+            dropPlace.push(item.id)
         }
     } else {
         item.classList.remove('inDropPlace')
-        dropPlace = dropPlace.filter(i => i !== item)
+        dropPlace = dropPlace.filter(i => i !== item.id)
     }
 
     let correctElementsCount = 0
