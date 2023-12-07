@@ -243,4 +243,5 @@ function dropPlaceIsFull(elemBelow, item) {
             return true
         }
     }
+    console.log(correctElementsCount)
 }

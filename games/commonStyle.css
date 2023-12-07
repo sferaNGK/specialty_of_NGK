@@ -9,6 +9,10 @@ html {
     overflow: hidden;
 }
 
+html {
+    overflow: hidden;
+}
+
 a {
     text-decoration: none;
     color: #ffffff;
