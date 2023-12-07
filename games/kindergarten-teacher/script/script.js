@@ -18,6 +18,7 @@ function handleTouchStart(event) {
 
 function handleTouchMove(event) {
     event.preventDefault()
+    event.stopPropagation()
     if (currentElement.current !== null) { // --- ЕСЛИ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ ОПРЕДЕЛЕНА
         let item = currentElement.current.target
 
@@ -42,7 +43,7 @@ function handleTouchMove(event) {
 
         // --- СКРЫВАЕМ ПЕРЕТАСКИВАЕМЫЙ ОБЪЕКТ, ЧТОБЫ ОПРЕДЕЛИТЬ НАХОДЯЩИЙСЯ ПОД НИМ БЛОК, И СНОВА ПОКАЗЫВАЕМ ---
         item.style.visibility = 'hidden';
-        let elemBelow = document.elementFromPoint(item.getBoundingClientRect().left + item.offsetWidth / 2, item.getBoundingClientRect().bottom);
+        let elemBelow = document.elementFromPoint(event.touches[0].pageX, event.touches[0].pageY);
         item.style.visibility = 'visible';
 
         // --- ОТСЛЕЖИВАЕМ ЗАПОЛНЕННОСТЬ МЕШКА И ЁЛКИ НУЖНЫМИ ОБЪЕКТАМИ ---
