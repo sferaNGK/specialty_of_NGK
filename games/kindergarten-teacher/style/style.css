@@ -22,7 +22,6 @@ body {
     width: max-content;
     height: max-content;
     line-height: 4.75vh;
-    touch-action: none;
 }
 
 .container {
