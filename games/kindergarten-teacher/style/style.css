@@ -6,7 +6,7 @@ body {
     background-position-y: -7vh;
 }
 
-.container p {
+.table p {
     color: white;
     margin: 0.5vh 0.5vw;
     font-size: 3vh;
@@ -22,16 +22,15 @@ body {
     width: max-content;
     height: max-content;
     line-height: 4.75vh;
-    touch-action: none;
 }
 
-.container {
+.table {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     width: 65vw;
-    height: 78vh;
+    height: 82vh;
     border: 0.12vw solid #f1f1f1;
     border-radius: 1vw;
     display: grid;
@@ -42,7 +41,7 @@ body {
     box-shadow: 0 0 25px 0 rgba(230, 0, 255, 0.25);
 }
 
-.container h6 {
+.table h6 {
     color: white;
     font-size: 5vh;
     display: grid;
@@ -54,6 +53,7 @@ body {
 .left-drop-side, .right-drop-side {
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
 }
 
 .left-drop-side span, .right-drop-side span {
@@ -64,7 +64,7 @@ body {
 
 .left-drop-side {
     border-right: 0.06vw solid #f1f1f1;
-    border-bottom: 0.12vw solid #f1f1f1;;
+    border-bottom: 0.12vw solid #f1f1f1;
 }
 
 .right-drop-side {
