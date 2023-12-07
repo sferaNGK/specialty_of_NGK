@@ -17,8 +17,6 @@ function handleTouchStart(event) {
 }
 
 function handleTouchMove(event) {
-    event.preventDefault()
-    event.stopPropagation()
     if (currentElement.current !== null) { // --- ЕСЛИ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ ОПРЕДЕЛЕНА
         let item = currentElement.current.target
 
