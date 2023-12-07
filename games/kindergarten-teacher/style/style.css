@@ -15,6 +15,15 @@ body {
     line-height: 4.75vh;
 }
 
+.correct, .incorrect {
+    color: white;
+    margin: 0.5vh 0.5vw;
+    font-size: 3vh;
+    width: max-content;
+    height: max-content;
+    line-height: 4.75vh;
+}
+
 .container {
     position: absolute;
     left: 50%;
@@ -41,9 +50,14 @@ body {
     border-bottom: 0.12vw solid #f1f1f1;
 }
 
-.left-drop-side p, .right-drop-side p {
+.left-drop-side, .right-drop-side {
+    display: flex;
+    flex-direction: column;
+}
+
+.left-drop-side span, .right-drop-side span {
     color: white;
-    font-size: 3vh;
+    font-size: 3.5vh;
     text-decoration: underline;
 }
 
