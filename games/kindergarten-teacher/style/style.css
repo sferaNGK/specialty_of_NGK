@@ -9,10 +9,10 @@ body {
 .container p {
     color: white;
     margin: 0.5vh 0.5vw;
-    font-size: 2.5vh;
+    font-size: 3vh;
     width: max-content;
     height: max-content;
-    line-height: 4.5vh;
+    line-height: 4.75vh;
 }
 
 .container {
@@ -20,16 +20,16 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 55vw;
-    height: 68vh;
+    width: 65vw;
+    height: 78vh;
     border: 0.12vw solid #f1f1f1;
     border-radius: 1vw;
     display: grid;
     grid-template-rows: 10% 65% 25%;
     grid-template-columns: repeat(2, 50%);
-    background-color: rgba(48, 56, 173, 0.25);
+    background-color: rgba(30, 39, 183, 0.25);
     backdrop-filter: blur(15px);
-    box-shadow: 0 0 10px 0 rgba(255, 31, 221, 0.3);
+    box-shadow: 0 0 25px 0 rgba(230, 0, 255, 0.25);
 }
 
 .container h6 {
@@ -43,22 +43,24 @@ body {
 
 .left-drop-side p, .right-drop-side p {
     color: white;
-    font-size: 2.5vh;
+    font-size: 3vh;
     text-decoration: underline;
 }
 
 .left-drop-side {
     border-right: 0.06vw solid #f1f1f1;
+    border-bottom: 0.12vw solid #f1f1f1;;
 }
 
 .right-drop-side {
     border-left: 0.06vw solid #f1f1f1;
+    border-bottom: 0.12vw solid #f1f1f1;;
 }
 
 .items {
-    border-top: 0.12vw solid #f1f1f1;
     grid-column: 1 / 3;
     display: flex;
     flex-wrap: wrap;
+    align-self: center;
     height: max-content;
 }
