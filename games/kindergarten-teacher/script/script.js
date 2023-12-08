@@ -70,20 +70,28 @@ function handleTouchEnd() { // --- КОГДА УБИРАЕМ ПАЛЕЦ С ЭК�
 
     dragElement.current = null;
     dropPlace.current = null;
-    
+
+    let correctCount = 0
+    let incorrectCount = 0
     if (document.querySelector('.left-drop-side').children.length - 1 === document.querySelectorAll('.correct').length) {
         if (document.querySelector('.right-drop-side').children.length - 1 === document.querySelectorAll('.incorrect').length) {
-            setTimeout(() => {
-                document.querySelector('.congratulation').style.display = 'grid'
-                for (let i of document.body.children) {
-                    if (i.className !== 'congratulation') {
-                        i.style.display = 'none'
-                    }
+            for (let item of document.querySelector('.left-drop-side').children) {
+                if (item.className === ' correct') {
+                    correctCount++
                 }
-                document.querySelector('body').style.backdropFilter = 'blur(5px)'
-            }, 1000)
+            }
         }
     }
 }
+
+// setTimeout(() => {
+//     document.querySelector('.congratulation').style.display = 'grid'
+//     for (let i of document.body.children) {
+//         if (i.className !== 'congratulation') {
+//             i.style.display = 'none'
+//         }
+//     }
+//     document.querySelector('body').style.backdropFilter = 'blur(5px)'
+// }, 1000)
 
 document.body.addEventListener('touchend', handleTouchEnd);
