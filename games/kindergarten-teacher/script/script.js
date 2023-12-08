@@ -61,17 +61,24 @@ function handleTouchEnd() { // --- КОГДА УБИРАЕМ ПАЛЕЦ С ЭК�
         let item = dragElement.current.target
         let elemBelow = dropPlace.current
 
-        if (elemBelow.className !== 'left-drop-side' && elemBelow.className !== 'right-drop-side') {
+        console.log(elemBelow.parentElement)
+
+        if (elemBelow.className !== 'left-drop-side' && elemBelow.parentElement.className !== 'left-drop-side' && elemBelow.className !== 'right-drop-side' && elemBelow.parentElement.className !== 'right-drop-side') {
             document.querySelector('.items').appendChild(item)
             item.style.position = 'static'
-        } else {
+        } else if (elemBelow.parentElement.className === 'left-drop-side' || elemBelow.parentElement.className === 'right-drop-side') {
+            elemBelow.parentElement.appendChild(item)
+            item.style.position = 'static'
+        }
+        else {
             elemBelow.appendChild(item)
             item.style.position = 'static'
-            if (elemBelow.className === 'left-drop-side' && item.className === 'correct' || elemBelow.className === 'right-drop-side' && item.className === 'incorrect') {
-                item.style.color = 'green'
-            } else {
-                item.style.color = 'red'
-            }
+        }
+
+        if (((elemBelow.className === 'left-drop-side' || elemBelow.parentElement.className === 'left-drop-side') && item.className === 'correct') || ((elemBelow.className === 'right-drop-side' || elemBelow.parentElement.className === 'right-drop-side') && item.className === 'incorrect')) {
+            item.style.color = 'green'
+        } else {
+            item.style.color = 'red'
         }
 
         dragElement.current = null;
