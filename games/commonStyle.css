@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     user-select: none;
+    -moz-user-select: none;
 }
 
 html {
@@ -12,6 +13,10 @@ html {
 a {
     text-decoration: none;
     color: #ffffff;
+}
+
+button {
+    cursor: pointer;
 }
 
 h1 {
@@ -39,15 +44,25 @@ body {
     width: 80vw;
     height: 75vh;
     background: rgba(255, 255, 255, 0.70);
-    backdrop-filter: blur(70px);
     box-shadow: 0 0 10px 0 rgba(137, 137, 137, 0.75);
     border-radius: 2vw;
+    overflow: hidden;
 }
 
 .congratulation img {
     position: absolute;
     z-index: 0;
     pointer-events: none;
+}
+
+.blurFilter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    backdrop-filter: blur(15px);
+    z-index: -1;
 }
 
 #salutLeft {
@@ -68,13 +83,18 @@ body {
     border-radius: 1vw;
 }
 
-.toMenu {
+.toMenu, .toNext {
+    font-family: CyrRound, serif;
+    color: white;
     font-size: 6vh;
+    text-align: center;
     padding: 0.25vh 1.5vw;
+    margin: 0 1vw;
     background: #45b100;
     border-radius: 1vw;
     box-shadow: 0 0 0.5vw 0 white;
     border: 0.12vw solid white;
+    width: 30%;
 }
 
 .backButton {

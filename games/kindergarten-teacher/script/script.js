@@ -34,14 +34,12 @@ function handleTouchMove(event) {
         let elemBelow = document.elementFromPoint(event.touches[0].pageX, event.touches[0].pageY);
         item.style.visibility = 'visible';
 
-        if (elemBelow.className === 'left-drop-side' || elemBelow.className === 'right-drop-side') {
-            dropPlace.current = elemBelow;
-        }
+        dropPlace.current = elemBelow;
     }
 }
 
 function moveAt(item, event) {
-    // --- ЗАДАЕМ ЧЕРЕЗ JS-АНИМАЦИЮ КООРДИНАТЫ НАШЕГО КУРСОРА (ПАЛЬЦА) НА ЭКРАНЕ ---
+    // --- ЗАДАЕМ ЧЕРЕЗ СТИЛИ КООРДИНАТЫ НАШЕГО КУРСОРА (ПАЛЬЦА) НА ЭКРАНЕ ---
     item.style.left = (event.touches[0].pageX - shiftX)*100/document.documentElement.offsetWidth + '%';
     item.style.top = (event.touches[0].pageY - shiftY)*100/document.documentElement.offsetHeight + '%';
 
@@ -59,39 +57,49 @@ function moveAt(item, event) {
 }
 
 function handleTouchEnd() { // --- КОГДА УБИРАЕМ ПАЛЕЦ С ЭКРАНА - ТЕКУЩИЙ ПЕРЕМЕЩАЕМЫЙ ОБЪЕКТ ОБНУЛЯЕТСЯ
-    let item = dragElement.current.target
-    dropPlace.current.appendChild(item)
-    item.style.position = 'static'
-    if (dropPlace.current.className === 'left-drop-side' && item.className === 'correct' || dropPlace.current.className === 'right-drop-side' && item.className === 'incorrect') {
-        item.style.color = 'green'
-    } else {
-        item.style.color = 'red'
-    }
+    if (dragElement.current !== null) {
+        let item = dragElement.current.target
+        let elemBelow = dropPlace.current
 
-    dragElement.current = null;
-    dropPlace.current = null;
+        if (elemBelow.className !== 'left-drop-side' && elemBelow.className !== 'right-drop-side') {
+            document.querySelector('.items').appendChild(item)
+            item.style.position = 'static'
+        } else {
+            elemBelow.appendChild(item)
+            item.style.position = 'static'
+            if (elemBelow.className === 'left-drop-side' && item.className === 'correct' || elemBelow.className === 'right-drop-side' && item.className === 'incorrect') {
+                item.style.color = 'green'
+            } else {
+                item.style.color = 'red'
+            }
+        }
 
-    let correctCount = 0
-    let incorrectCount = 0
-    if (document.querySelector('.left-drop-side').children.length - 1 === document.querySelectorAll('.correct').length) {
-        if (document.querySelector('.right-drop-side').children.length - 1 === document.querySelectorAll('.incorrect').length) {
-            for (let item of document.querySelector('.left-drop-side').children) {
-                if (item.className === ' correct') {
-                    correctCount++
+        dragElement.current = null;
+        dropPlace.current = null;
+
+        if (document.querySelector('.left-drop-side').children.length - 1 === document.querySelectorAll('.correct').length) {
+            if (document.querySelector('.right-drop-side').children.length - 1 === document.querySelectorAll('.incorrect').length) {
+                let correctCount = 0
+                let incorrectCount = 0
+                for (let item of document.querySelector('.left-drop-side').children) {
+                    if (item.className === 'correct') {
+                        correctCount++
+                    }
+                }
+                if (correctCount === document.querySelectorAll('.correct').length) {
+                    setTimeout(() => {
+                        document.querySelector('.congratulation').style.display = 'grid'
+                        for (let i of document.body.children) {
+                            if (i.className !== 'congratulation') {
+                                i.style.display = 'none'
+                            }
+                        }
+                        document.querySelector('body').style.backdropFilter = 'blur(5px)'
+                    }, 1000)
                 }
             }
         }
     }
 }
-
-// setTimeout(() => {
-//     document.querySelector('.congratulation').style.display = 'grid'
-//     for (let i of document.body.children) {
-//         if (i.className !== 'congratulation') {
-//             i.style.display = 'none'
-//         }
-//     }
-//     document.querySelector('body').style.backdropFilter = 'blur(5px)'
-// }, 1000)
 
 document.body.addEventListener('touchend', handleTouchEnd);
