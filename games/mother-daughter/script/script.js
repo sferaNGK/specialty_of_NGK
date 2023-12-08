@@ -4,7 +4,7 @@ const images = [
         src: "img/carpet.png",
         alt: "carpet",
         className: "drop-place",
-        posLeft: "50%",
+        posLeft: "49%",
         posTop: "80%",
 
     },
@@ -14,7 +14,7 @@ const images = [
         alt: "airplane",
         className: "drag-item incorrect",
         posLeft: "39%",
-        posTop: "78%",
+        posTop: "80%",
     },
     {
         id: "car1",
@@ -30,7 +30,7 @@ const images = [
         alt: "car2",
         className: "drag-item incorrect",
         posLeft: "9.5%",
-        posTop: "40%",
+        posTop: "44%",
     },
     {
         id: "gun1",
@@ -45,8 +45,8 @@ const images = [
         src: "img/gun2.png",
         alt: "gun2",
         className: "drag-item incorrect",
-        posLeft: "80%",
-        posTop: "72%",
+        posLeft: "78%",
+        posTop: "84%",
     },
     {
         id: "lego",
@@ -62,7 +62,7 @@ const images = [
         alt: "kukla1",
         className: "drag-item correct",
         posLeft: "91%",
-        posTop: "72%",
+        posTop: "75%",
     },
     {
         id: "kukla2",
@@ -78,7 +78,7 @@ const images = [
         alt: "kukla3",
         className: "drag-item correct",
         posLeft: "65.5%",
-        posTop: "48%",
+        posTop: "50%",
     },
     {
         id: "instruments",
@@ -86,7 +86,7 @@ const images = [
         alt: "instruments",
         className: "drag-item incorrect",
         posLeft: "88%",
-        posTop: "78%",
+        posTop: "81%",
     },
     {
         id: "pram",
