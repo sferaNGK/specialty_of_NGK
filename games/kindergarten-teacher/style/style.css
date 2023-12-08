@@ -40,24 +40,24 @@ body {
     line-height: 4.75vh;
 }
 
-.left-drop-side, .right-drop-side {
+.forCorrect, .forIncorrect {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
 }
 
-.left-drop-side span, .right-drop-side span {
+.forCorrect span, .forIncorrect span {
     color: white;
     font-size: 3.5vh;
     text-decoration: underline;
 }
 
-.left-drop-side {
+.forCorrect {
     border-right: 0.06vw solid #f1f1f1;
     border-bottom: 0.12vw solid #f1f1f1;
 }
 
-.right-drop-side {
+.forIncorrect {
     border-left: 0.06vw solid #f1f1f1;
     border-bottom: 0.12vw solid #f1f1f1;;
 }

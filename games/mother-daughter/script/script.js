@@ -129,27 +129,6 @@ for (let item of images) {
     createItem(item)
 }
 
-// const startBlock = document.querySelector('.start');
-// const startButton = document.querySelector('.startButton');
-// const backButton = document.querySelector('.backButton')
-
-// startButton.onclick = () => { // --- КНОПКА "НАЧАТЬ"
-//     startBlock.style.display = 'none';
-//     backButton.style.display = 'block';
-//     for (let item of allItems) {
-//         item.style.visibility = 'visible'
-//     }
-//     document.documentElement.requestFullscreen()
-// }
-
-// backButton.onclick = () => { // --- КНОПКА "НАЗАД"
-//     for (let item of allItems) {
-//         item.style.visibility = 'hidden';
-//     }
-//     startBlock.style.display = 'grid';
-//     backButton.style.display = 'none';
-// }
-
 const currentElement = { // --- ТЕКУЩАЯ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ
     current: null,
 };

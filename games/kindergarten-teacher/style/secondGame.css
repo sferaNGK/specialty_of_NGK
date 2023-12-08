@@ -1,0 +1,60 @@
+@import "../../../style/fonts.css";
+@import "../../commonStyle.css";
+
+body {
+    background-image: url("../img/bg2.jpg");
+    display: block;
+}
+
+h1 {
+    text-align: start;
+    font-size: 4.5vh;
+    line-height: 5.2vh;
+}
+
+.title {
+    padding: 0 1.5vw;
+    width: 28%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 2vw 2vw 0;
+    background: navajowhite;
+}
+
+.stickers {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5vh;
+}
+
+.stickers img {
+    width: 10vh;
+    margin:  0.5vh 0.5vw;
+}
+
+.card {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cardImg {
+    background-size: cover;
+    width: 20vw;
+    height: 25vh;
+    border: 0.25vh solid;
+    border-radius: 1.5vw;
+}
+
+.card p {
+    font-size: 3vh;
+    line-height: 4vh;
+}
+
+#scolds {
+    background-position-x: -2vw;
+}

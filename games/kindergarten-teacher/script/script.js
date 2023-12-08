@@ -61,27 +61,32 @@ function handleTouchEnd() { // --- КОГДА УБИРАЕМ ПАЛЕЦ С ЭК�
         let item = dragElement.current.target
         let elemBelow = dropPlace.current
 
-        if (elemBelow.className !== 'left-drop-side' && elemBelow.className !== 'right-drop-side') {
+        if (elemBelow.className !== 'forCorrect' && elemBelow.parentElement.className !== 'forCorrect' && elemBelow.className !== 'forIncorrect' && elemBelow.parentElement.className !== 'forIncorrect') {
             document.querySelector('.items').appendChild(item)
             item.style.position = 'static'
-        } else {
+        } else if (elemBelow.parentElement.className === 'forCorrect' || elemBelow.parentElement.className === 'forIncorrect') {
+            elemBelow.parentElement.appendChild(item)
+            item.style.position = 'static'
+        }
+        else {
             elemBelow.appendChild(item)
             item.style.position = 'static'
-            if (elemBelow.className === 'left-drop-side' && item.className === 'correct' || elemBelow.className === 'right-drop-side' && item.className === 'incorrect') {
-                item.style.color = 'green'
-            } else {
-                item.style.color = 'red'
-            }
+        }
+
+        if (((elemBelow.className === 'forCorrect' || elemBelow.parentElement.className === 'forCorrect') && item.className === 'correct') || ((elemBelow.className === 'forIncorrect' || elemBelow.parentElement.className === 'forIncorrect') && item.className === 'incorrect')) {
+            item.style.color = 'green'
+        } else {
+            item.style.color = 'red'
         }
 
         dragElement.current = null;
         dropPlace.current = null;
 
-        if (document.querySelector('.left-drop-side').children.length - 1 === document.querySelectorAll('.correct').length) {
-            if (document.querySelector('.right-drop-side').children.length - 1 === document.querySelectorAll('.incorrect').length) {
+        if (document.querySelector('.forCorrect').children.length - 1 === document.querySelectorAll('.correct').length) {
+            if (document.querySelector('.forIncorrect').children.length - 1 === document.querySelectorAll('.incorrect').length) {
                 let correctCount = 0
                 let incorrectCount = 0
-                for (let item of document.querySelector('.left-drop-side').children) {
+                for (let item of document.querySelector('.forCorrect').children) {
                     if (item.className === 'correct') {
                         correctCount++
                     }
