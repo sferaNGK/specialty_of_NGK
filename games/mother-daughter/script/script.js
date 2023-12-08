@@ -200,6 +200,8 @@ function handleTouchMove(event) {
         let elemBelow = document.elementFromPoint(item.getBoundingClientRect().left + item.offsetWidth / 2, item.getBoundingClientRect().bottom);
         item.style.visibility = 'visible';
 
+        console.log(elemBelow)
+
         // --- ОТСЛЕЖИВАЕМ ЗАПОЛНЕННОСТЬ ОБЛАСТИ ДРОПА НУЖНЫМИ ОБЪЕКТАМИ ---
         let dropPlaceStatus = dropPlaceIsFull(elemBelow, item)
 
@@ -228,8 +230,6 @@ function dropPlaceIsFull(elemBelow, item) {
         dropPlace = dropPlace.filter(i => i !== item)
     }
 
-    console.log(dropPlace)
-
     let correctElementsCount = 0
     if (dropPlace.length === document.getElementsByClassName('correct').length) {
         for (let item of dropPlace) {
@@ -243,7 +243,6 @@ function dropPlaceIsFull(elemBelow, item) {
             return true
         }
     }
-    console.log(correctElementsCount)
 }
 
 function handleTouchEnd() { // --- КОГДА УБИРАЕМ ПАЛЕЦ С ЭКРАНА - ТЕКУЩИЙ ПЕРЕМЕЩАЕМЫЙ ОБЪЕКТ ОБНУЛЯЕТСЯ
