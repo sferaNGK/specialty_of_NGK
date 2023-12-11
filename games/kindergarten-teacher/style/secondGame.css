@@ -21,7 +21,7 @@ h1 {
     align-items: center;
     justify-content: center;
     border-radius: 0 2vw 2vw 0;
-    background: #ee83ff;
+    background: rgba(238, 131, 255);
 }
 
 .stickers {
@@ -50,7 +50,7 @@ h1 {
     background-size: cover;
     width: 100%;
     height: 22vh;
-    border: 0.2vh solid;
+    border: 0.35vh solid #9e00ff;
     border-radius: 1.5vw;
 }
 
@@ -61,7 +61,8 @@ h1 {
     line-height: 3vh;
     text-align: center;
     padding: 1vh 0.5vw;
-    background: white;
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 1.5vh;
-    border: 0.2vh solid;
+    backdrop-filter: blur(6px);
+    border: 0.35vh solid #d189ff;
 }

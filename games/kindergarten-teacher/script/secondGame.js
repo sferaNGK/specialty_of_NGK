@@ -121,7 +121,7 @@ function handleTouchMove(event) {
         let elemBelow = document.elementFromPoint(event.touches[0].pageX, event.touches[0].pageY);
         item.style.visibility = 'visible';
 
-        dropPlace.current = elemBelow;
+        dropPlace.current = elemBelow.parentElement;
     }
 }
 
@@ -143,8 +143,43 @@ function moveAt(item, event) {
     }
 }
 
-function handleTouchEnd() { // --- КОГДА УБИРАЕМ ПАЛЕЦ С ЭКРАНА - ТЕКУЩИЙ ПЕРЕМЕЩАЕМЫЙ ОБЪЕКТ ОБНУЛЯЕТСЯ
-    dragElement.current = null;
+function handleTouchEnd() { // --- КОГДА УБИРАЕМ ПАЛЕЦ С ЭКРАНА ДОБАВЛЯЕМ СТИКЕР К КАРТОЧКЕ И ОТСЛЕЖИВАЕМ ПРАВИЛЬНОСТЬ ОТВЕТА
+    if (dragElement.current !== null) {
+        let item = dragElement.current.target
+        let elemBelow = dropPlace.current
+
+        if (elemBelow.className.split(' ')[0] === 'card' && elemBelow.getElementsByTagName('img').length < 1) {
+            elemBelow.appendChild(item)
+            item.style.top = '-5%'
+            item.style.left = '-5%'
+        } else {
+            document.querySelector('.stickers').appendChild(item)
+            item.style.position = 'static'
+        }
+
+        let correctCount = 0
+        let incorrectCount = 0
+
+        for (let item of document.querySelectorAll('.card')) {
+            if (item.lastChild.className === 'correct' && item.className.split(' ')[1] === 'forCorrect') {
+                correctCount++
+            } else if (item.lastChild.className === 'incorrect' && item.className.split(' ')[1] === 'forIncorrect') {
+                incorrectCount++
+            }
+        }
+
+        if (correctCount === document.querySelectorAll('.correct').length && incorrectCount === document.querySelectorAll('.incorrect').length) {
+            setTimeout(() => {
+                document.querySelector('.congratulation').style.display = 'grid'
+                for (let i of document.body.children) {
+                    if (i.className !== 'congratulation') {
+                        i.style.display = 'none'
+                    }
+                }
+                document.querySelector('body').style.backdropFilter = 'blur(5px)'
+            }, 1000)
+        }
+    }
 }
 
 document.body.addEventListener('touchend', handleTouchEnd);
