@@ -65,7 +65,7 @@ const cards = [
     },
 ]
 
-function createCard(element){
+function createCard(element){ // --- СОЗДАНИЕ КАРТОЧЕК СО СВОЙСТВАМИ ОБЪЕКТОВ МАССИВА CARDS
     const card = document.createElement("div")
     card.className = element.className
     card.style.right = element.posRight
@@ -81,15 +81,17 @@ function createCard(element){
     card.appendChild(description)
 }
 
-for (let element of cards) {
+for (let element of cards) { // --- ДОБАВЛЕНИЕ КАРТОЧЕК НА СТРАНИЦУ
     createCard(element)
 }
 
-const currentElement = { // --- ТЕКУЩАЯ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ
+const dragElement = { // --- ТЕКУЩАЯ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ
     current: null,
 };
 
-let dropPlace = [];
+const dropPlace = {
+    current: null,
+};
 
 let shiftX = null;
 let shiftY = null;
@@ -99,56 +101,50 @@ for (let item of document.querySelector('.stickers').children) { // --- ВЕША
 }
 
 function handleTouchStart(event) {
-    currentElement.current = event.targetTouches[0];
+    dragElement.current = event.targetTouches[0];
     document.body.addEventListener('touchmove', handleTouchMove);
-    shiftX = event.touches[0].pageX - this.getBoundingClientRect().left;
-    shiftY = event.touches[0].pageY - this.getBoundingClientRect().top;
+    shiftX = dragElement.current.target.offsetWidth / 2;
+    shiftY = dragElement.current.target.offsetHeight / 2;
 }
 
 function handleTouchMove(event) {
-    if (currentElement.current !== null) { // --- ЕСЛИ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ ОПРЕДЕЛЕНА
-        let item = currentElement.current.target
+    if (dragElement.current !== null) { // --- ЕСЛИ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ ОПРЕДЕЛЕНА
+        let item = dragElement.current.target
 
         document.body.appendChild(item)
         item.style.position = 'absolute'
 
-        // --- ЗАДАЕМ ЧЕРЕЗ JS-АНИМАЦИЮ КООРДИНАТЫ НАШЕГО КУРСОРА (ПАЛЬЦА) НА ЭКРАНЕ ---
-        window.requestAnimationFrame(() => {
-            item.style.left = (event.touches[0].pageX - shiftX)*100/document.documentElement.clientWidth + '%';
-            item.style.top = (event.touches[0].pageY - shiftY)*100/document.documentElement.clientHeight + '%';
-
-            // --- ПРОВЕРЯЕМ, НЕ ВЫХОДИТ ЛИ НАШ ОБЪЕКТ ЗА ГРАНИЦЫ ЭКРАНА ---
-            if (event.touches[0].pageX < 40) {
-                item.style.left = event.touches[0].pageX - shiftX + 170 + 'px';
-            } else if (event.touches[0].pageX > window.screen.width - 50) {
-                item.style.left = event.touches[0].pageX - shiftX - 170 + 'px';
-            }
-            if (event.touches[0].pageY < 40) {
-                item.style.top = event.touches[0].pageY - shiftY + 170 + 'px';
-            } else if (event.touches[0].pageY > window.screen.height - 50) {
-                item.style.top = event.touches[0].pageY - shiftY - 170 + 'px';
-            }
-        })
+        moveAt(item, event)
 
         // --- СКРЫВАЕМ ПЕРЕТАСКИВАЕМЫЙ ОБЪЕКТ, ЧТОБЫ ОПРЕДЕЛИТЬ НАХОДЯЩИЙСЯ ПОД НИМ БЛОК, И СНОВА ПОКАЗЫВАЕМ ---
         item.style.visibility = 'hidden';
-        let elemBelow = document.elementFromPoint(item.getBoundingClientRect().left + item.offsetWidth / 2, item.getBoundingClientRect().bottom);
+        let elemBelow = document.elementFromPoint(event.touches[0].pageX, event.touches[0].pageY);
         item.style.visibility = 'visible';
 
-            // setTimeout(() => {
-            //     document.querySelector('.congratulation').style.display = 'grid'
-            //     for (let i of document.body.children) {
-            //         if (i.className !== 'congratulation') {
-            //             i.style.display = 'none'
-            //         }
-            //     }
-            //     document.querySelector('body').style.backdropFilter = 'blur(5px)'
-            // }, 1000)
+        dropPlace.current = elemBelow;
+    }
+}
+
+function moveAt(item, event) {
+    // --- ЗАДАЕМ ЧЕРЕЗ СТИЛИ КООРДИНАТЫ НАШЕГО КУРСОРА (ПАЛЬЦА) НА ЭКРАНЕ ---
+    item.style.left = (event.touches[0].pageX - shiftX)*100/document.documentElement.offsetWidth + '%';
+    item.style.top = (event.touches[0].pageY - shiftY)*100/document.documentElement.offsetHeight + '%';
+
+    // --- ПРОВЕРЯЕМ, НЕ ВЫХОДИТ ЛИ НАШ ОБЪЕКТ ЗА ГРАНИЦЫ ЭКРАНА ---
+    if (event.touches[0].pageX < 40) {
+        item.style.left = event.touches[0].pageX - shiftX + 170 + 'px';
+    } else if (event.touches[0].pageX > window.screen.width - 50) {
+        item.style.left = event.touches[0].pageX - shiftX - 170 + 'px';
+    }
+    if (event.touches[0].pageY < 40) {
+        item.style.top = event.touches[0].pageY - shiftY + 170 + 'px';
+    } else if (event.touches[0].pageY > window.screen.height - 50) {
+        item.style.top = event.touches[0].pageY - shiftY - 170 + 'px';
     }
 }
 
 function handleTouchEnd() { // --- КОГДА УБИРАЕМ ПАЛЕЦ С ЭКРАНА - ТЕКУЩИЙ ПЕРЕМЕЩАЕМЫЙ ОБЪЕКТ ОБНУЛЯЕТСЯ
-    currentElement.current = null;
+    dragElement.current = null;
 }
 
 document.body.addEventListener('touchend', handleTouchEnd);
