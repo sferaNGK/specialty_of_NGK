@@ -1,0 +1,40 @@
+@import "../../../style/fonts.css";
+@import "../../commonStyle.css";
+
+body {
+    background-image: url("../img/bg3.png");
+}
+
+.kid {
+    position: absolute;
+    width: 40vh;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.title {
+    position: absolute;
+    padding: 0 1.5vw;
+    width: 28%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 2vw 2vw 0;
+    background: rgb(236, 134, 243);
+}
+
+.title h1 {
+    text-align: start;
+    font-size: 4.5vh;
+    line-height: 5.2vh;
+}
+
+.title .clothes {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-top: 1vh;
+}
