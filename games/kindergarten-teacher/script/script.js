@@ -71,12 +71,11 @@ function handleTouchEnd() { // --- КОГДА УБИРАЕМ ПАЛЕЦ С ЭК�
         else {
             elemBelow.appendChild(item)
             item.style.position = 'static'
-        }
-
-        if (((elemBelow.className === 'forCorrect' || elemBelow.parentElement.className === 'forCorrect') && item.className === 'correct') || ((elemBelow.className === 'forIncorrect' || elemBelow.parentElement.className === 'forIncorrect') && item.className === 'incorrect')) {
-            item.style.color = 'green'
-        } else {
-            item.style.color = 'red'
+            if (((elemBelow.className === 'forCorrect' || elemBelow.parentElement.className === 'forCorrect') && item.className === 'correct') || ((elemBelow.className === 'forIncorrect' || elemBelow.parentElement.className === 'forIncorrect') && item.className === 'incorrect')) {
+                item.style.color = 'green'
+            } else {
+                item.style.color = 'red'
+            }
         }
 
         dragElement.current = null;
@@ -85,7 +84,6 @@ function handleTouchEnd() { // --- КОГДА УБИРАЕМ ПАЛЕЦ С ЭК�
         if (document.querySelector('.forCorrect').children.length - 1 === document.querySelectorAll('.correct').length) {
             if (document.querySelector('.forIncorrect').children.length - 1 === document.querySelectorAll('.incorrect').length) {
                 let correctCount = 0
-                let incorrectCount = 0
                 for (let item of document.querySelector('.forCorrect').children) {
                     if (item.className === 'correct') {
                         correctCount++
