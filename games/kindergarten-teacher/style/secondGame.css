@@ -6,7 +6,7 @@ body {
     display: block;
 }
 
-h1 {
+.title h1 {
     text-align: start;
     font-size: 4.5vh;
     line-height: 5.2vh;

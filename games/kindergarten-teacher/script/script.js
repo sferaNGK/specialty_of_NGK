@@ -64,14 +64,19 @@ function handleTouchEnd() { // --- КОГДА УБИРАЕМ ПАЛЕЦ С ЭК�
         if (elemBelow.className !== 'forCorrect' && elemBelow.parentElement.className !== 'forCorrect' && elemBelow.className !== 'forIncorrect' && elemBelow.parentElement.className !== 'forIncorrect') {
             document.querySelector('.items').appendChild(item)
             item.style.position = 'static'
+            item.style.color = 'white'
         } else if (elemBelow.parentElement.className === 'forCorrect' || elemBelow.parentElement.className === 'forIncorrect') {
             elemBelow.parentElement.appendChild(item)
             item.style.position = 'static'
-        }
-        else {
+            if ((elemBelow.parentElement.className === 'forCorrect' && item.className === 'correct') || (elemBelow.parentElement.className === 'forIncorrect' && item.className === 'incorrect')) {
+                item.style.color = 'green'
+            } else {
+                item.style.color = 'red'
+            }
+        } else {
             elemBelow.appendChild(item)
             item.style.position = 'static'
-            if (((elemBelow.className === 'forCorrect' || elemBelow.parentElement.className === 'forCorrect') && item.className === 'correct') || ((elemBelow.className === 'forIncorrect' || elemBelow.parentElement.className === 'forIncorrect') && item.className === 'incorrect')) {
+            if ((elemBelow.className === 'forCorrect' && item.className === 'correct') || (elemBelow.className === 'forIncorrect' && item.className === 'incorrect')) {
                 item.style.color = 'green'
             } else {
                 item.style.color = 'red'
