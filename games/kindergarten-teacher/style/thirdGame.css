@@ -6,10 +6,14 @@ body {
 }
 
 .kid {
+    background-image: url("../img/kidWithoutClothes.png");
+    background-position: center;
+    background-size: cover;
     position: absolute;
-    width: 40vh;
+    height: 80vh;
+    width: 32vh;
     top: 18%;
-    left: 50%;
+    left: 57%;
     transform: translateX(-50%);
 }
 
@@ -23,7 +27,7 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 0 2vw 2vw 0;
-    background: rgb(236, 134, 243);
+    background: rgb(158, 163, 255);
 }
 
 .title h1 {
@@ -32,9 +36,10 @@ body {
     line-height: 5.2vh;
 }
 
-.title .clothes {
+.clothes {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
+    height: 35%;
     margin-top: 1vh;
 }

@@ -29,7 +29,7 @@ body {
     flex-wrap: wrap;
     align-content: center;
     margin-top: 1vh;
-    height: 34vh;
+    height: 32%;
 }
 
 .correct, .incorrect {

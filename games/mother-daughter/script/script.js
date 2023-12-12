@@ -114,19 +114,19 @@ const images = [
     }
 ]
 
-function createItem(item){
-    const element = document.createElement("img")
-    element.id = item.id
-    element.src = item.src
-    element.alt = item.alt
-    element.className = item.className
-    element.style.left = item.posLeft
-    element.style.top = item.posTop
-    document.body.appendChild(element)
+function createElement(element){
+    const img = document.createElement("img")
+    img.id = element.id
+    img.src = element.src
+    img.alt = element.alt
+    img.className = element.className
+    img.style.left = element.posLeft
+    img.style.top = element.posTop
+    document.body.appendChild(img)
 }
 
-for (let item of images) {
-    createItem(item)
+for (let element of images) {
+    createElement(element)
 }
 
 const currentElement = { // --- ТЕКУЩАЯ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ
