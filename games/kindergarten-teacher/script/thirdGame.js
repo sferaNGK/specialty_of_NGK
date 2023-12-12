@@ -6,8 +6,8 @@ const clothes = [
         posTop: "30%",
         posLeft: "5.05%",
         widthOnChild: "26.7vh",
-        baseWidth: "10vh",
-        display: "block"
+        baseWidth: "18vh",
+        zIndex: "0"
     },
     {
         id: "1",
@@ -16,8 +16,8 @@ const clothes = [
         posTop: "31%",
         posLeft: "21%",
         widthOnChild: "17vh",
-        baseWidth: "10vh",
-        display: "none"
+        baseWidth: "18vh",
+        zIndex: "0"
     },
     {
         id: "2",
@@ -26,8 +26,8 @@ const clothes = [
         posTop: "56%",
         posLeft: "0%",
         widthOnChild: "8.2vh",
-        baseWidth: "10vh",
-        display: "none"
+        baseWidth: "18vh",
+        zIndex: "0"
     },
     {
         id: "3",
@@ -36,18 +36,18 @@ const clothes = [
         posTop: "57%",
         posLeft: "75.3%",
         widthOnChild: "7vh",
-        baseWidth: "10vh",
-        display: "none"
+        baseWidth: "18vh",
+        zIndex: "0"
     },
     {
         id: "4",
         className: "clothes-item",
         imgURL: "img/redHat.png",
-        posTop: "-5%",
-        posLeft: "14%",
-        widthOnChild: "30vh",
-        baseWidth: "15vh",
-        display: "none"
+        posTop: "-7%",
+        posLeft: "10%",
+        widthOnChild: "25vh",
+        baseWidth: "19vh",
+        zIndex: "0"
     },
     {
         id: "5",
@@ -56,8 +56,8 @@ const clothes = [
         posTop: "81%",
         posLeft: "28%",
         widthOnChild: "8.5vh",
-        baseWidth: "8vh",
-        display: "none"
+        baseWidth: "16vh",
+        zIndex: "0"
     },
     {
         id: "6",
@@ -66,18 +66,18 @@ const clothes = [
         posTop: "81%",
         posLeft: "47%",
         widthOnChild: "10vh",
-        baseWidth: "8vh",
-        display: "none"
+        baseWidth: "16vh",
+        zIndex: "0"
     },
     {
         id: "7",
         className: "clothes-item",
         imgURL: "img/sweatPants.png",
-        posTop: "60%",
+        posTop: "59%",
         posLeft: "22%",
         widthOnChild: "19vh",
-        baseWidth: "8vh",
-        display: "none"
+        baseWidth: "16vh",
+        zIndex: "1"
     },
     {
         id: "8",
@@ -86,8 +86,8 @@ const clothes = [
         posTop: "82%",
         posLeft: "30%",
         widthOnChild: "8vh",
-        baseWidth: "6vh",
-        display: "none"
+        baseWidth: "18vh",
+        zIndex: "0"
     },
     {
         id: "9",
@@ -96,26 +96,25 @@ const clothes = [
         posTop: "82%",
         posLeft: "47.5%",
         widthOnChild: "10vh",
-        baseWidth: "8vh",
-        display: "none"
+        baseWidth: "16vh",
+        zIndex: "0"
     },
 ]
 
 function createElement(element){ // --- СОЗДАНИЕ КАРТОЧЕК СО СВОЙСТВАМИ ОБЪЕКТОВ МАССИВА CARDS
     const img = document.createElement("img")
-    img.id = element.id
-    img.className = element.className
-    img.src = element.imgURL
-    img.style.left = element.posLeft
-    img.style.top = element.posTop
-    img.style.width = element.baseWidth
-    img.style.display = element.display
-    if (element.display === "block") {
-        document.querySelector('.clothes').appendChild(img)
-    }
+    img.id = element.id;
+    img.className = element.className;
+    img.src = element.imgURL;
+    img.style.left = element.posLeft;
+    img.style.top = element.posTop;
+    img.style.width = element.baseWidth;
+    img.style.zIndex = element.zIndex
+    img.addEventListener('touchstart', handleTouchStart);
+    document.querySelector('.clothes').appendChild(img);
 }
 
-createElement(clothes[0])
+createElement(clothes[0]);
 
 const dragElement = { // --- ТЕКУЩАЯ ПЕРЕТАСКИВАЕМАЯ ЦЕЛЬ
     current: null,
@@ -127,10 +126,6 @@ const dropPlace = {
 
 let shiftX = null;
 let shiftY = null;
-
-for (let item of document.querySelector('.clothes').children) { // --- ВЕШАЕМ НА ПЕРЕТАСКИВАЕМЫЕ ОБЪЕКТЫ ОБРАБОТЧИК СОБЫТИЯ
-    item.addEventListener('touchstart', handleTouchStart);
-}
 
 function handleTouchStart(event) {
     dragElement.current = event.targetTouches[0];
@@ -190,25 +185,25 @@ function handleTouchEnd() { // --- КОГДА УБИРАЕМ ПАЛЕЦ С ЭК�
         item.style.left = clothes[item.id].posLeft
         item.style.top = clothes[item.id].posTop
         item.style.width = clothes[item.id].widthOnChild
+        item.removeEventListener("touchstart", handleTouchStart)
 
-        if (item.id < clothes.length) {
-            clothes[item.id + 1].display = "block"
-            document.querySelector('.clothes').appendChild(createElement())
+        if (item.id < clothes.length-1) {
+            createElement(clothes[+item.id + 1])
         }
 
-
         dragElement.current = null;
-        dropPlace.current = null;
 
-        // setTimeout(() => {
-        //     document.querySelector('.congratulation').style.display = 'grid'
-        //     for (let i of document.body.children) {
-        //         if (i.className !== 'congratulation') {
-        //             i.style.display = 'none'
-        //         }
-        //     }
-        //     document.querySelector('body').style.backdropFilter = 'blur(5px)'
-        // }, 1000)
+        if (document.querySelector('.kid').children.length === clothes.length) {
+            setTimeout(() => {
+                document.querySelector('.congratulation').style.display = 'grid'
+                for (let i of document.body.children) {
+                    if (i.className !== 'congratulation') {
+                        i.style.display = 'none'
+                    }
+                }
+                document.querySelector('body').style.backdropFilter = 'blur(5px)'
+            }, 1000)
+        }
     }
 }
 
