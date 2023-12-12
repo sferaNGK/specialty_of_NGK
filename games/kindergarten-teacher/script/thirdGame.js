@@ -12,45 +12,15 @@ const clothes = [
     {
         id: "1",
         className: "clothes-item",
-        imgURL: "img/skarf.png",
-        posTop: "31%",
-        posLeft: "21%",
-        widthOnChild: "17vh",
-        baseWidth: "18vh",
-        zIndex: "0"
+        imgURL: "img/sweatPants.png",
+        posTop: "59%",
+        posLeft: "22%",
+        widthOnChild: "19vh",
+        baseWidth: "16vh",
+        zIndex: "1"
     },
     {
         id: "2",
-        className: "clothes-item",
-        imgURL: "img/leftGlove.png",
-        posTop: "56%",
-        posLeft: "0%",
-        widthOnChild: "8.2vh",
-        baseWidth: "18vh",
-        zIndex: "0"
-    },
-    {
-        id: "3",
-        className: "clothes-item",
-        imgURL: "img/rightGlove.png",
-        posTop: "57%",
-        posLeft: "75.3%",
-        widthOnChild: "7vh",
-        baseWidth: "18vh",
-        zIndex: "0"
-    },
-    {
-        id: "4",
-        className: "clothes-item",
-        imgURL: "img/redHat.png",
-        posTop: "-7%",
-        posLeft: "10%",
-        widthOnChild: "25vh",
-        baseWidth: "19vh",
-        zIndex: "0"
-    },
-    {
-        id: "5",
         className: "clothes-item",
         imgURL: "img/leftSock.png",
         posTop: "81%",
@@ -60,7 +30,7 @@ const clothes = [
         zIndex: "0"
     },
     {
-        id: "6",
+        id: "3",
         className: "clothes-item",
         imgURL: "img/rightSock.png",
         posTop: "81%",
@@ -70,17 +40,27 @@ const clothes = [
         zIndex: "0"
     },
     {
-        id: "7",
+        id: "4",
         className: "clothes-item",
-        imgURL: "img/sweatPants.png",
-        posTop: "59%",
-        posLeft: "22%",
-        widthOnChild: "19vh",
-        baseWidth: "16vh",
-        zIndex: "1"
+        imgURL: "img/skarf.png",
+        posTop: "31%",
+        posLeft: "21%",
+        widthOnChild: "17vh",
+        baseWidth: "18vh",
+        zIndex: "0"
     },
     {
-        id: "8",
+        id: "5",
+        className: "clothes-item",
+        imgURL: "img/redHat.png",
+        posTop: "-7%",
+        posLeft: "10%",
+        widthOnChild: "25vh",
+        baseWidth: "19vh",
+        zIndex: "0"
+    },
+    {
+        id: "6",
         className: "clothes-item",
         imgURL: "img/leftShoe.png",
         posTop: "82%",
@@ -90,7 +70,7 @@ const clothes = [
         zIndex: "0"
     },
     {
-        id: "9",
+        id: "7",
         className: "clothes-item",
         imgURL: "img/rightShoe.png",
         posTop: "82%",
@@ -98,6 +78,36 @@ const clothes = [
         widthOnChild: "10vh",
         baseWidth: "16vh",
         zIndex: "0"
+    },
+    {
+        id: "8",
+        className: "clothes-item",
+        imgURL: "img/leftGlove.png",
+        posTop: "56%",
+        posLeft: "0%",
+        widthOnChild: "8.2vh",
+        baseWidth: "18vh",
+        zIndex: "0"
+    },
+    {
+        id: "9",
+        className: "clothes-item",
+        imgURL: "img/rightGlove.png",
+        posTop: "57%",
+        posLeft: "75.3%",
+        widthOnChild: "7vh",
+        baseWidth: "18vh",
+        zIndex: "0"
+    },
+    {
+        id: "10",
+        className: "clothes-item",
+        imgURL: "img/jacket.png",
+        posTop: "30%",
+        posLeft: "3%",
+        widthOnChild: "28vh",
+        baseWidth: "16vh",
+        zIndex: "1"
     },
 ]
 
