@@ -168,6 +168,9 @@ function handleTouchEnd() { // --- КОГДА УБИРАЕМ ПАЛЕЦ С ЭК�
             }
         }
 
+        dragElement.current = null
+        dropPlace.current = null
+
         if (correctCount === document.querySelectorAll('.correct').length && incorrectCount === document.querySelectorAll('.incorrect').length) {
             setTimeout(() => {
                 document.querySelector('.congratulation').style.display = 'grid'

@@ -42,26 +42,6 @@ const clothes = [
     {
         id: "4",
         className: "clothes-item",
-        imgURL: "img/skarf.png",
-        posTop: "31%",
-        posLeft: "21%",
-        widthOnChild: "17vh",
-        baseWidth: "18vh",
-        zIndex: "0"
-    },
-    {
-        id: "5",
-        className: "clothes-item",
-        imgURL: "img/redHat.png",
-        posTop: "-7%",
-        posLeft: "10%",
-        widthOnChild: "25vh",
-        baseWidth: "19vh",
-        zIndex: "0"
-    },
-    {
-        id: "6",
-        className: "clothes-item",
         imgURL: "img/leftShoe.png",
         posTop: "82%",
         posLeft: "30%",
@@ -70,7 +50,7 @@ const clothes = [
         zIndex: "0"
     },
     {
-        id: "7",
+        id: "5",
         className: "clothes-item",
         imgURL: "img/rightShoe.png",
         posTop: "82%",
@@ -80,7 +60,37 @@ const clothes = [
         zIndex: "0"
     },
     {
+        id: "6",
+        className: "clothes-item",
+        imgURL: "img/jacket.png",
+        posTop: "30%",
+        posLeft: "3%",
+        widthOnChild: "28vh",
+        baseWidth: "16vh",
+        zIndex: "1"
+    },
+    {
+        id: "7",
+        className: "clothes-item",
+        imgURL: "img/skarf.png",
+        posTop: "31%",
+        posLeft: "21%",
+        widthOnChild: "17vh",
+        baseWidth: "18vh",
+        zIndex: "1"
+    },
+    {
         id: "8",
+        className: "clothes-item",
+        imgURL: "img/redHat.png",
+        posTop: "-7%",
+        posLeft: "10%",
+        widthOnChild: "25vh",
+        baseWidth: "19vh",
+        zIndex: "0"
+    },
+    {
+        id: "9",
         className: "clothes-item",
         imgURL: "img/leftGlove.png",
         posTop: "56%",
@@ -90,7 +100,7 @@ const clothes = [
         zIndex: "0"
     },
     {
-        id: "9",
+        id: "10",
         className: "clothes-item",
         imgURL: "img/rightGlove.png",
         posTop: "57%",
@@ -98,17 +108,7 @@ const clothes = [
         widthOnChild: "7vh",
         baseWidth: "18vh",
         zIndex: "0"
-    },
-    {
-        id: "10",
-        className: "clothes-item",
-        imgURL: "img/jacket.png",
-        posTop: "30%",
-        posLeft: "3%",
-        widthOnChild: "28vh",
-        baseWidth: "16vh",
-        zIndex: "1"
-    },
+    }
 ]
 
 function createElement(element){ // --- СОЗДАНИЕ КАРТОЧЕК СО СВОЙСТВАМИ ОБЪЕКТОВ МАССИВА CARDS

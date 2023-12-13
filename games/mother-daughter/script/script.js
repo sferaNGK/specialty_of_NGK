@@ -179,8 +179,6 @@ function handleTouchMove(event) {
         let elemBelow = document.elementFromPoint(item.getBoundingClientRect().left + item.offsetWidth / 2, item.getBoundingClientRect().bottom);
         item.style.visibility = 'visible';
 
-        console.log(elemBelow)
-
         // --- ОТСЛЕЖИВАЕМ ЗАПОЛНЕННОСТЬ ОБЛАСТИ ДРОПА НУЖНЫМИ ОБЪЕКТАМИ ---
         let dropPlaceStatus = dropPlaceIsFull(elemBelow, item)
 
