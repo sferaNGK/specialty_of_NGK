@@ -190,7 +190,6 @@ function handleTouchMove(event) {
                         i.style.display = 'none'
                     }
                 }
-                document.querySelector('body').style.backdropFilter = 'blur(5px)'
             }, 1000)
         }
     }

@@ -43,7 +43,7 @@ body {
     place-content: center;
     width: 80vw;
     height: 75vh;
-    background: rgba(255, 255, 255, 0.70);
+    background: rgba(255, 255, 255);
     box-shadow: 0 0 10px 0 rgba(137, 137, 137, 0.75);
     border-radius: 2vw;
     overflow: hidden;
@@ -53,16 +53,6 @@ body {
     position: absolute;
     z-index: 0;
     pointer-events: none;
-}
-
-.blurFilter {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    backdrop-filter: blur(5px);
-    z-index: -1;
 }
 
 #salutLeft {
