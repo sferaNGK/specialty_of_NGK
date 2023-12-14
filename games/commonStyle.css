@@ -44,7 +44,7 @@ body {
     width: 80vw;
     height: 75vh;
     background: rgba(255, 255, 255);
-    box-shadow: 0 0 10px 0 rgba(137, 137, 137, 0.75);
+    box-shadow: 0 0 15px 0 rgba(137, 137, 137, 0.8);
     border-radius: 2vw;
     overflow: hidden;
 }
