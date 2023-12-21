@@ -84,7 +84,11 @@ body {
     background: #45b100;
     border-radius: 1vw;
     border: 0.15vw solid white;
-    width: 26%;
+    width: 32%;
+}
+
+.toMenu {
+    margin-top: 1vh;
 }
 
 .backButton {
