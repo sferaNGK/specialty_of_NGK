@@ -70,7 +70,7 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 10vh;
+    margin-top: 7vh;
     border-radius: 1vw;
 }
 
@@ -88,7 +88,7 @@ body {
 }
 
 .toMenu {
-    margin-top: 1vh;
+    margin-top: 2vh;
 }
 
 .backButton {
